@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "saasfromscratch",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "Become the solo SaaS founder you were meant to be.",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -10,18 +10,30 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "gatsby": "^5.13.7",
+    "gatsby-omni-font-loader": "^2.0.2",
+    "lucide-react": "^0.454.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "tailwind-merge": "^2.5.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/princefishthrower/saasfromscratch"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/princefishthrower/saasfromscratch/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "gatsby-plugin-postcss": "^6.13.1",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }
