@@ -1,23 +1,16 @@
 import React from 'react';
-import { Check } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '../components/utils/Card';
-
-interface PricingTierProps {
-  image: string;
-  title: string;
-  price: string;
-  description: string;
-  features: string[];
-  recommended?: boolean;
-}
+import PricingTier from '../components/PricingTier';
+import FAQSection from '../components/FaqSection';
+import { Link } from 'gatsby';
 
 interface WorkshopCardProps {
   title: string;
+  subtitle: string;
   description: string;
   imageUrl: string;
 }
 
-const WorkshopCard: React.FC<WorkshopCardProps> = ({ title, description, imageUrl }) => (
+const WorkshopCard: React.FC<WorkshopCardProps> = ({ title, subtitle, description, imageUrl }) => (
   <div className="not-prose">
     <div className="mx-auto flex w-full max-w-screen-lg flex-col items-center gap-5 md:flex-row md:items-start">
       <a className="flex flex-shrink-0 items-center justify-center md:items-start">
@@ -28,9 +21,9 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({ title, description, imageUr
           {title}
         </h3>
         <h4 className="text-balance pt-2 text-center text-lg font-normal text-primary sm:text-2xl sm:font-medium md:pt-3 md:text-left lg:text-2xl">
-          Everything you need from idea to launch
+          {subtitle}
         </h4>
-        <div className="flex flex-col space-y-5 pt-5 leading-relaxed text-foreground sm:text-lg sm:leading-relaxed md:pt-8 lg:text-2xl lg:leading-relaxed">
+        <div className="flex flex-col space-y-5 pt-5 leading-relaxed text-foreground sm:text-lg sm:leading-relaxed md:pt-8 lg:text-lg lg:leading-relaxed">
           <p>{description}</p>
         </div>
       </div>
@@ -38,35 +31,21 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({ title, description, imageUr
   </div>
 );
 
-const PricingTier: React.FC<PricingTierProps> = ({ image, title, price, description, features, recommended }) => (
-  <div className={`transition hover:opacity-100 ${recommended ? 'origin-top lg:scale-105' : 'origin-top-left opacity-80 lg:mt-28 lg:scale-90'}`}>
-    <Card className="w-full max-w-sm">
-      <CardHeader>
-        <img src={image} alt={title} className="w-[200px] h-[200px] mx-auto rounded-full" />
-        <CardTitle>
-          <h2 className="text-2xl font-semibold">{title}</h2>
-          <div className="mt-4">
-            <sup className="text-sm">US</sup>
-            <span className="text-4xl font-bold">${price}</span>
-          </div>
-        </CardTitle>
-        <p className="text-sm text-gray-400">{description}</p>
-      </CardHeader>
-      <CardContent>
-        <ul className="space-y-4">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              <Check className="mr-2 h-4 w-4 text-primary" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-        <button className="mt-8 w-full rounded bg-primary px-4 py-2 font-semibold text-primary-foreground hover:bg-primary/90">
-          Buy Now
-        </button>
-      </CardContent>
-    </Card>
-  </div>
+const Testimonial = ({ quote, name, role, imageId }) => (
+  <blockquote className="relative flex h-full flex-col justify-between bg-gray-800/20 p-6 rounded-lg backdrop-blur-sm">
+    <p className="text-lg mb-4 leading-relaxed">{quote}</p>
+    <footer className="flex items-center gap-4">
+      <img
+        src={`https://thispersondoesnotexist.xyz/img/${imageId}`}
+        alt={name}
+        className="w-12 h-12 rounded-full object-cover"
+      />
+      <cite className="not-italic">
+        <div className="font-semibold">{name}</div>
+        <div className="text-sm text-gray-400">{role}</div>
+      </cite>
+    </footer>
+  </blockquote>
 );
 
 const SaaSLanding: React.FC = () => {
@@ -75,10 +54,10 @@ const SaaSLanding: React.FC = () => {
       {/* Navigation */}
       <nav className="fixed top-0 z-30 flex h-16 w-full items-center justify-center border-b dark:bg-slate-950 dark:border-b-slate-500 pl-4 pr-3">
         <div className="flex w-full items-center justify-between">
-          <span className="text-2xl font-semibold dark:text-white font-gentium">SaaS from Scratch</span>
+          <span className="text-2xl font-semibold dark:text-white font-gentium">SaaS from Scratch™</span>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-sm hover:text-primary dark:text-white">FAQ</a>
-            <a href="#" className="text-sm hover:text-primary dark:text-white">Login</a>
+            <a href="#faq" className="text-sm hover:text-primary dark:text-white">FAQ</a>
+            <Link to="/login" className="text-sm hover:text-primary dark:text-white">Login</Link>
             <a href="#pricing" className="rounded bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground dark:text-white hover:bg-primary/90">
               Get Access
             </a>
@@ -90,22 +69,25 @@ const SaaSLanding: React.FC = () => {
       <header className="relative flex flex-col items-center justify-center px-5 pt-32">
         <div className="relative z-10 flex w-full max-w-screen-lg flex-col-reverse items-center text-center lg:flex-row lg:text-left">
           <div className="relative z-10 flex w-full max-w-2xl flex-col items-center lg:items-start">
-            <h1 className="mt-16 w-full max-w-[14ch] font-heading text-6xl font-normal leading-[1.25] sm:text-5xl lg:text-6xl dark:text-white">
+            <h1 className="mt-16 w-full max-w-[14ch] font-heading text-[4rem] font-normal leading-[1.25] sm:text-[4rem] lg:text-[4rem] dark:text-white">
               Become the <strong className="font-black">Solo SaaS Founder</strong> You Were Meant to Be
             </h1>
-            <h2 className="mt-3 max-w-[35ch] bg-gradient-to-bl from-teal-100 to-cyan-500 bg-clip-text pb-8 text-lg font-normal text-transparent sm:text-3xl">
+            <h2 className="mt-3 max-w-[35ch] bg-gradient-to-bl from-teal-400 to-cyan-500 bg-clip-text pb-8 text-lg font-normal text-transparent sm:text-3xl">
               Master the complete journey from idea to profitable software as a service (SaaS) with a proven frameworks and step-by-step guide
             </h2>
             <div className="flex items-center gap-3 sm:text-lg dark:text-white">
-              <img src="/img/chris.png" alt="Chris Frewin, the instructor of SaaS from Scratch" className="w-10 rounded-full sm:w-16" />
-              <span>Chris Frewin</span>
+              <a href="https://chrisfrew.in" target="_blank" className='flex items-center gap-3 sm:text-lg dark:text-white'>
+                <img src="/img/chris.png" alt="Chris Frewin, the instructor of SaaS from Scratch™" className="w-10 rounded-full sm:w-16" />
+                <span>Chris Frewin</span>
+              </a>
             </div>
           </div>
-          <div className="pointer-events-none flex-shrink-0 select-none m-3">
-            <img 
-              src="/img/splash.jpeg" 
+          <div className="relative flex-shrink-0 select-none m-3">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 opacity-75 blur-lg group-hover:opacity-100 animate-pulse"></div>
+            <img
+              src="/img/splash.jpeg"
               alt=""
-              className="w-full max-w-md lg:max-w-lg rounded-full"
+              className="relative w-full max-w-md lg:max-w-lg rounded-full"
               aria-hidden="true"
             />
           </div>
@@ -118,17 +100,17 @@ const SaaSLanding: React.FC = () => {
           <h2 className="text-center text-3xl font-semibold my-12">
             You're <span className='font-bold text-cyan-500'>good at coding</span>, but building every part of a SaaS product feels <span className='font-bold text-cyan-500'>overwhelming</span>
           </h2>
-          
+
           <p className='text-2xl'>You start building your product: the idea is great, you even have interested customers.</p>
-                    
+
           <p className='text-2xl'>Soon you're pulling in all sorts of frameworks for authentication, authorization, payments, and data persistence...</p>
-          
+
           <p className='text-2xl'>It's not long before you've stacked up too many modules, libraries, and packages to count...</p>
 
-          <p className='text-2xl'>Before you know it, you get hung up on some error or bug and the ability to bring your product to any sort of launch falls apart</p>
+          <p className='text-2xl'>Before you know it, you get hung up on some error or bug and the ability to bring your product to any sort of launch falls apart.</p>
 
           <h2 className="text-center text-3xl font-semibold mb-10 my-12">
-            <span className='font-bold font-gentium'>Sound <span className='font-bold text-cyan-500'>familiar?</span><br/><br/>...then SaaS from Scratch</span> is exactly the course you've been looking for
+            <span className='font-bold'>Sound <span className='font-bold text-cyan-500'>familiar?</span><br /><br />...then <span className='font-gentium'>SaaS from Scratch™</span> is exactly the course you've been looking for.</span>
           </h2>
 
           <p className='text-2xl'>The course is 100% focused on building a SaaS in a way that is sustainable for a solo founder. No gimmicks or snake oil: 100% technically focused lessons designed for the technical solo founder.</p>
@@ -147,19 +129,34 @@ const SaaSLanding: React.FC = () => {
           <section id="workshops" className="bg-gradient-to-b mt-16 pb-16 from-background to-black/40 border-b border-white/5 w-full">
             <div className="flex flex-col gap-28 pb-24">
               <WorkshopCard
-                title="Rapid Prototyping"
-                description="Learn how to build your MVP quickly and efficiently, from idea to launch in just a few weeks."
+                title="1. Modern Frontend Architecture"
+                subtitle='Gatsby, TypeScript, and Redux for production-ready front ends.'
+                description="Master Gatsby, TypeScript, and Redux while building a production-ready frontend. Learn advanced component design, state management, and API integration patterns used by top SaaS companies."
                 imageUrl="/img/proto.jpeg"
               />
               <WorkshopCard
-                title="Technical Architecture & Implementation"
-                description="Master the essential technical patterns for building scalable SaaS applications, from auth to billing to deployment."
+                title="2. Full-Stack Infrastructure & DevOps"
+                subtitle='Backend with .NET Core, CI/CD pipelines, and Digital Ocean deployment.'
+                description="Build a robust backend with .NET Core, set up CI/CD pipelines, and deploy to Digital Ocean. Learn professional-grade DevOps practices including SSL certification, NGINX configuration, and multi-environment management."
                 imageUrl="/img/proto2.jpeg"
               />
               <WorkshopCard
-                title="Maintenance, Feature Development, Monitoring"
-                description="Learn how to maintain and grow your SaaS product, from adding new features to monitoring performance."
+                title="3. Advanced API Development"
+                subtitle='API design, TypeScript compiler integration, authentication, and microservices.'
+                description="Create sophisticated API endpoints with TypeScript compiler integration, implement secure authentication, and build scalable microservices. Master contract-based API design and robust error handling."
                 imageUrl="/img/proto3.jpeg"
+              />
+              <WorkshopCard
+                title="4. Production-Ready Features & Integration"
+                subtitle='Payments, authentication, user management, and email systems.'
+                description="Implement essential SaaS features including Stripe payments, Supabase user management, and custom email systems. Learn to build professional features that users expect from modern SaaS products."
+                imageUrl="/img/proto4.jpeg"
+              />
+              <WorkshopCard
+                title="5. Testing & Quality Assurance"
+                subtitle="Unit, integration, and end-to-end testing, staging environments, and application-wide logging."
+                description="Develop comprehensive testing suites using Cypress and xUnit, set up staging environments, and implement application-wide logging. Master the practices that ensure your SaaS runs reliably at scale."
+                imageUrl="/img/proto5.jpeg"
               />
             </div>
           </section>
@@ -169,7 +166,7 @@ const SaaSLanding: React.FC = () => {
             <h2 className="text-center text-4xl font-bold mb-16">Start Your SaaS Journey Today</h2>
             <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
               <PricingTier
-              image="/img/essentials.jpeg"
+                image="/img/essentials.jpeg"
                 title="Launcher"
                 price="250"
                 description="Complete access to core curriculum"
@@ -180,9 +177,10 @@ const SaaSLanding: React.FC = () => {
                   "Project Templates",
                   "Certificate of Completion"
                 ]}
+                recommended={false}
               />
               <PricingTier
-              image="/img/complete.jpeg"
+                image="/img/complete.jpeg"
                 title="Founder"
                 price="500"
                 description="Everything you need to succeed"
@@ -194,7 +192,7 @@ const SaaSLanding: React.FC = () => {
                   "Private Discord Access",
                   "Lifetime Updates"
                 ]}
-                recommended
+                recommended={true}
               />
             </div>
           </section>
@@ -214,21 +212,37 @@ const SaaSLanding: React.FC = () => {
           <section className="bg-gradient-to-b from-black relative to-background w-full sm:pb-24 pb-5 mt-40">
             <h2 className="text-center text-4xl font-bold my-16">What Our Students Say</h2>
             <div className="grid md:grid-cols-2 gap-8 px-5">
-              {[1, 2, 3, 4].map((i) => (
-                <blockquote key={i} className="relative flex h-full flex-col justify-between bg-gray-800/20 p-6 rounded-lg">
-                  <p className="text-lg mb-4">
-                    "This course gave me the confidence and framework I needed to finally launch my SaaS. Within 3 months of completing it, I had my first paying customers."
-                  </p>
-                  <footer className="flex items-center gap-4">
-                    <img src="/api/placeholder/40/40" alt="Student" className="w-10 h-10 rounded-full" />
-                    <cite className="not-italic">John Doe, Founder of SaaSProduct</cite>
-                  </footer>
-                </blockquote>
-              ))}
+              <Testimonial
+                quote="The TypeScript and Redux implementation was game-changing. I rebuilt our entire frontend following the course patterns, and our codebase is now so much more maintainable. The section on API contract testing saved us countless hours of debugging."
+                name="Sarah Chen"
+                role="Senior Frontend Developer"
+                imageId="1"
+              />
+              <Testimonial
+                quote="Finally, a course that covers real DevOps! Setting up CI/CD with Bitbucket Pipelines, managing staging environments, and implementing SSL certs with Certbot - it's all the stuff we actually need in production. Worth every penny."
+                name="Marcus Rodriguez"
+                role="DevOps Engineer"
+                imageId="2"
+              />
+              <Testimonial
+                quote="The integration of Stripe and Supabase was exactly what I needed. Launched my SaaS in 6 weeks and got to 50 paying customers in the first month. The authentication and payment sections alone saved me weeks of research."
+                name="Lisa Patel"
+                role="SaaS Founder"
+                imageId="3"
+              />
+              <Testimonial
+                quote="As a backend developer, I struggled with modern frontend architectures. The Gatsby and React components sections were incredibly well-explained. Now I'm confidently building full-stack applications with proper testing and monitoring."
+                name="Michael Thompson"
+                role="Full Stack Developer"
+                imageId="4"
+              />
             </div>
           </section>
         </article>
       </main>
+
+      {/* FAQs */}
+      <FAQSection/>
 
       {/* Footer */}
       <footer className="mt-20 border-t border-gray-800 py-12 dark:text-white">
