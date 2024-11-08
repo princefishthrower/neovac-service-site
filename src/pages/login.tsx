@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { navigate } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { supabase } from '../services/supabase'
 
 const LoginPage = () => {
@@ -32,7 +32,7 @@ const LoginPage = () => {
     <div className="min-h-screen bg-background dark:bg-slate-950 text-foreground antialiased">
       <nav className="fixed top-0 z-30 flex h-16 w-full items-center justify-center border-b dark:bg-slate-950 dark:border-b-slate-500 pl-4 pr-3">
         <div className="flex w-full items-center justify-between">
-          <span className="text-2xl font-semibold dark:text-white font-gentium">SaaS from Scratch™</span>
+          <Link to="/" className="text-2xl font-semibold dark:text-white font-gentium">SaaS from Scratch™</Link>
         </div>
       </nav>
 

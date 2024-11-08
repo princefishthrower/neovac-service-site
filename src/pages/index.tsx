@@ -31,7 +31,7 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({ title, subtitle, descriptio
   </div>
 );
 
-const Testimonial = ({ quote, name, role, imageId }) => (
+const Testimonial = ({ quote, name, role, imageId }: { quote: string, name: string, role: string, imageId: string }) => (
   <blockquote className="relative flex h-full flex-col justify-between bg-gray-800/20 p-6 rounded-lg backdrop-blur-sm">
     <p className="text-lg mb-4 leading-relaxed">{quote}</p>
     <footer className="flex items-center gap-4">
@@ -251,17 +251,17 @@ const SaaSLanding: React.FC = () => {
             <div>
               <h3 className="font-semibold mb-4">Learn</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-primary">Curriculum</a></li>
-                <li><a href="#" className="hover:text-primary">Resources</a></li>
-                <li><a href="#" className="hover:text-primary">Blog</a></li>
+                <li><Link to="/curriculum" className="hover:text-primary">Curriculum</Link></li>
+                <li><Link to="/resources" className="hover:text-primary">Resources</Link></li>
+                {/* <li><a href="#" className="hover:text-primary">Blog</a></li> */}
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Community</h3>
               <ul className="space-y-2">
-                <li><a href="#" className="hover:text-primary">Discord</a></li>
-                <li><a href="#" className="hover:text-primary">Bluesky</a></li>
-                <li><a href="#" className="hover:text-primary">GitHub</a></li>
+                {/* <li><a href="#" className="hover:text-primary">Discord</a></li> */}
+                <li><a href="https://bsky.app/profile/chrisfrewin.com" className="hover:text-primary">Bluesky</a></li>
+                <li><a href="https://github.com/princefishthrower/saasfromscratch" className="hover:text-primary">GitHub</a></li>
               </ul>
             </div>
           </div>

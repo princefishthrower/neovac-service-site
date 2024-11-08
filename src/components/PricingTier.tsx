@@ -2,7 +2,7 @@ import React from 'react';
 import { Check } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardContent } from './utils/Card';
 
-const PricingTier = ({ image, title, price, description, features, recommended }) => (
+const PricingTier = ({ image, title, price, description, features, recommended }: { image: string, title: string, price: string, description: string, features: string[], recommended: boolean }) => (
   <div className={`relative transition hover:opacity-100 ${
     recommended 
       ? 'origin-top lg:scale-105' 
@@ -34,7 +34,7 @@ const PricingTier = ({ image, title, price, description, features, recommended }
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">
-          {features.map((feature, index) => (
+          {features.map((feature: string, index: number) => (
             <li key={index} className="flex items-center">
               <Check className={`mr-2 h-4 w-4 ${recommended ? 'text-cyan-500' : 'text-primary'}`} />
               <span>{feature}</span>
