@@ -96,7 +96,7 @@ const SaaSLanding: React.FC = () => {
 
       {/* Main Content */}
       <main className="overflow-x-hidden my-12 dark:text-white">
-        <article className="max-w-[672px] mx-auto flex flex-col gap-20 pb-24">
+        <article className="max-w-[672px] mx-auto flex flex-col gap-20 pb-24 px-6">
           <h2 className="text-center text-3xl font-semibold my-12">
             You're <span className='font-bold text-cyan-500'>good at coding</span>, but building every part of a SaaS product feels <span className='font-bold text-cyan-500'>overwhelming</span>
           </h2>
@@ -164,7 +164,7 @@ const SaaSLanding: React.FC = () => {
           {/* Pricing Section */}
           <section id="pricing" className="py-20">
             <h2 className="text-center text-4xl font-bold mb-16">Start Your SaaS Journey Today</h2>
-            <div className="flex flex-col lg:flex-row gap-8 justify-center items-start">
+            <div className="flex flex-col-reverse lg:flex-row gap-8 justify-center items-center lg:items-start px-6">
               <PricingTier
                 image="/img/essentials.jpeg"
                 title="Launcher"
@@ -200,11 +200,12 @@ const SaaSLanding: React.FC = () => {
           {/* Trusted By Section */}
           <section className="not-prose mx-auto mb-0 flex w-full flex-col items-center justify-center bg-transparent px-5">
             <h2 className="font-text text-lg text-foreground opacity-75">Trusted by developers from</h2>
-            <div className="mt-10 grid w-full max-w-screen-lg grid-cols-3 place-items-center gap-8 sm:flex sm:flex-wrap sm:justify-center">
-              {/* Replace with actual company logos */}
-              <img src="/api/placeholder/120/40" alt="Company 1" className="h-8 opacity-50 hover:opacity-100" />
-              <img src="/api/placeholder/120/40" alt="Company 2" className="h-8 opacity-50 hover:opacity-100" />
-              <img src="/api/placeholder/120/40" alt="Company 3" className="h-8 opacity-50 hover:opacity-100" />
+            <div className="mt-10 flex flex-wrap justify-center items-center gap-8">
+              <img src="https://www.vectorlogo.zone/logos/google/google-ar21.svg" alt="Google" className="h-8 opacity-50 hover:opacity-100 dark:invert" />
+              <img src="https://www.vectorlogo.zone/logos/amazon/amazon-ar21.svg" alt="Amazon" className="h-8 opacity-50 hover:opacity-100 dark:invert" />
+              <img src="https://www.vectorlogo.zone/logos/apple/apple-ar21.svg" alt="Apple" className="h-8 opacity-50 hover:opacity-100 dark:invert" />
+              <img src="https://www.vectorlogo.zone/logos/netflix/netflix-ar21.svg" alt="Netflix" className="h-8 opacity-50 hover:opacity-100 dark:invert" />
+              <img src="https://www.vectorlogo.zone/logos/facebook/facebook-ar21.svg" alt="Meta (Facebook)" className="h-8 opacity-50 hover:opacity-100 dark:invert" />
             </div>
           </section>
 
