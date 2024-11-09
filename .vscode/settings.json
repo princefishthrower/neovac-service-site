@@ -3,6 +3,7 @@
         "clsx",
         "Gentium",
         "lucide",
-        "Supabase"
+        "Supabase",
+        "tailwindcss"
     ]
 }
