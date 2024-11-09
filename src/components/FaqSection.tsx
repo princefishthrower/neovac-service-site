@@ -10,7 +10,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
         className="flex w-full items-center justify-between py-6 text-left"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-xl font-medium">{question}</span>
+        <span className="text-xl font-medium text-black">{question}</span>
         {isOpen ? (
           <ChevronUp className="h-6 w-6 text-primary" />
         ) : (
@@ -19,7 +19,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
       </button>
       {isOpen && (
         <div className="pb-6">
-          <p className="text-gray-400">{answer}</p>
+          <p className="text-black">{answer}</p>
         </div>
       )}
     </div>
@@ -29,36 +29,36 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 const FAQSection = () => {
   const faqs = [
     {
-      question: "What technical prerequisites do I need for this course?",
-      answer: "You should have intermediate experience with JavaScript/TypeScript and be comfortable with React basics. Some familiarity with backend development concepts is helpful but not required. The course starts with fundamentals and progressively builds to advanced concepts."
+      question: "How does GitRecall's repository analysis work?",
+      answer: "GitRecall uses advanced LLM embeddings to analyze your git commit messages and diffs. This creates a searchable context that helps you quickly locate changes, understand code evolution, and identify potential regression points in your repository history."
     },
     {
-      question: "How long does it take to complete the course?",
-      answer: "The course is self-paced and consists of 100+ lessons across 5 comprehensive chapters. Most students complete it in 8-12 weeks while building their own SaaS product alongside the lessons. Each major section (Frontend, Backend, Testing, etc.) takes about 2-3 weeks to complete thoroughly."
+      question: "What's included in the Enterprise license?",
+      answer: "The Enterprise license costs $500 per year and includes unlimited repositories and unlimited queries. This gives you full access to GitRecall's commit analysis, search capabilities, and repository insights across all your projects."
     },
     {
-      question: "What tech stack does the course use and why?",
-      answer: "We use Gatsby/React/TypeScript for the frontend and .NET Core for the backend, deployed on Digital Ocean. This stack is chosen for its reliability, scalability, and maintainability as a solo founder. We also integrate industry-standard tools like Stripe, Netlify, and Supabase for various functionalities."
+      question: "How does GitRecall handle large repositories?",
+      answer: "GitRecall is optimized for enterprise-scale repositories. Our embedding system efficiently processes large commit histories and diffs, providing fast search results even across extensive git histories and large codebases."
     },
     {
-      question: "Will this course help me build my specific SaaS idea?",
-      answer: "Yes! While we build a specific example product throughout the course, the patterns, architectures, and integrations taught are applicable to any SaaS product. You'll learn how to implement authentication, payments, user management, API design, and testing - core components of any SaaS application."
+      question: "Can I use GitRecall with private repositories?",
+      answer: "Yes, GitRecall works with both public and private repositories. All analysis is performed locally on your machine, ensuring your code and commit history remain secure and private."
     },
     {
-      question: "What's included in the Founder tier vs the Launcher tier?",
-      answer: "The Founder tier includes everything in Launcher plus 1-on-1 office hours, private Discord access for direct support, lifetime updates to the course content, and additional workshops on growth and marketing. It's recommended for those who want more personalized guidance and ongoing support."
+      question: "What types of insights can GitRecall provide?",
+      answer: "GitRecall can help you track major refactors, identify when specific features were implemented, locate bug fixes, understand code evolution patterns, and pinpoint potential regression sources. The LLM-based analysis understands natural language queries about your codebase history."
     },
     {
-      question: "How is the course content delivered?",
-      answer: "The course includes video lessons, written tutorials, code examples, and practical exercises. You'll have access to complete source code, project templates, and a step-by-step guide for implementing each feature. The content is constantly updated to reflect the latest best practices and technologies."
+      question: "Is there a trial version available?",
+      answer: "Yes, you can try GitRecall with public repositories for free to experience its capabilities. The Enterprise license is required for private repositories and unlimited usage."
     },
     {
-      question: "Do you offer support if I get stuck?",
-      answer: "Yes! All students have access to our community forum where you can ask questions and get help. Founder tier members also get private Discord access and 1-on-1 office hours for more personalized support when needed."
+      question: "What operating systems does GitRecall support?",
+      answer: "GitRecall is available as a desktop application for Windows, macOS, and Linux. The application runs locally on your machine, ensuring fast performance and data privacy."
     },
     {
-      question: "Is there a money-back guarantee?",
-      answer: "Yes, we offer a 30-day money-back guarantee. If you're not satisfied with the course content or find it's not the right fit, we'll provide a full refund - no questions asked."
+      question: "Do you offer enterprise-wide licenses for teams?",
+      answer: "Yes, we offer custom enterprise-wide licensing for development teams. Contact us for pricing and deployment options for your organization."
     }
   ];
 

@@ -1,9 +1,9 @@
 {
-  "name": "saasfromscratch",
+  "name": "gitrecall",
   "private": true,
-  "description": "Become the solo SaaS founder you were meant to be.",
-  "version": "0.1.0",
-  "license": "0BSD",
+  "description": "GitRecall is a tool that helps you remember what you've done in your Git history.",
+  "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -25,10 +25,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/princefishthrower/saasfromscratch"
+    "url": "https://bitbucket.org/princefishthrower/gitrecall.com"
   },
   "bugs": {
-    "url": "https://github.com/princefishthrower/saasfromscratch/issues"
+    "url": "https://bitbucket.org/princefishthrower/gitrecall.com/issues"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
