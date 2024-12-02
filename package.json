@@ -24,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/princefishthrower/neovac-service-site.git"
+    "url": "https://github.com/princefishthrower/neovag-service-site.git"
   },
   "bugs": {
-    "url": "https://github.com/princefishthrower/neovac-service-site/issues"
+    "url": "https://github.com/princefishthrower/neovag-service-site/issues"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
