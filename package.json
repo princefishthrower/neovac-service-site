@@ -1,7 +1,7 @@
 {
-  "name": "gitrecall",
+  "name": "nouvag-service-site",
   "private": true,
-  "description": "GitRecall is a tool that helps you remember what you've done in your Git history.",
+  "description": "Nouvag Service Site",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,6 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.46.1",
     "clsx": "^2.1.1",
     "gatsby": "^5.13.7",
     "gatsby-omni-font-loader": "^2.0.2",
@@ -25,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/princefishthrower/gitrecall.com"
+    "url": "https://github.com/princefishthrower/neovac-service-site.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/princefishthrower/gitrecall.com/issues"
+    "url": "https://github.com/princefishthrower/neovac-service-site/issues"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
