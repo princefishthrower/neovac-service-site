@@ -7,13 +7,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: '#10B981', // emerald-500
-        'primary-dark': '#059669', // emerald-600
+        primary: '#E9425C', // Nouvag red
+        'primary-dark': '#D13B52', // Slightly darker red for hover states
         background: '#FFFFFF',
         foreground: '#111827',
       },
       fontFamily: {
-        gentium: ['Gentium Book Plus', 'serif'],
+        sans: ['Arial', 'sans-serif'], // More corporate feel
       },
     },
   },
