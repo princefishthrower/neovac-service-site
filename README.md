@@ -1,6 +1,6 @@
-# Neovag Neovac Service Site
+# Neovag Service Site
 
-The source code for Neovag's Neovac service site.
+The source code for Neovag service site.
 
 ## Developing Locally
 
